@@ -1,0 +1,5 @@
+# This code is for an Arduino
+# Created by Jess Siuzdak
+# Description: Will analyze the input data given from the Piezo Speaker.
+# The Arduino will interpret the data and either accpet or reject the input.
+# If it is accepted, the Arduino will supply a voltage to the motor that will turn the door.
