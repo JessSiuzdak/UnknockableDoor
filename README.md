@@ -1,8 +1,9 @@
 # UnknockableDoor
 Created by Jessica Siuzdak
 
-Version 1.0 - November 2th, 2015 [Initial Document]
-Version 2.0 - November 5th, 2015 [Addition of Decision for Number of Knocks]
+Version 1.0 - November 2th, 2015 Change: Initial Document
+
+Version 2.0 - November 5th, 2015 Change: Addition of Decision for Number of Knocks
 
 #Description:
 The door will be unlocked from a secret knock determined by the user. A Piezo buzzer
