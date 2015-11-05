@@ -1,0 +1,26 @@
+%{Created by Jonathan Otto from link https://www.youtube.com/watch?v=PLjRq1U6BQQ }%
+
+
+function [ fresp ] = fres(Fs)
+  %{FRES Spectral Analyser based on MIC input
+  Set Fs, sampling rate}%
+
+while 1
+  r=audiorecorder(Fs,8,1); % set variable r to the recoder, Set Fs, sampling rate, 8 bits per sample, 1 channel
+  record(r)                % Record input from the recoder
+  pause(0.05)              % Pause 
+  stop(r)
+  y=getaudiodata(r);
+  L = length(y);
+  NFFT = 2^nextpow2(L); % Next power of 2 from length of y
+  Y = fft(y,NFFT)/L;
+  f = Fs/2*linspace(0,1,NFFT/2+1);
+
+    % Plot single-sided amplitude spectrum.
+  plot(f,2*abs(Y(1:NFFT/2+1))) 
+  axis([0 Fs/2 0 0.01])
+  title('Single-Sided Amplitude Spectrum of y(t)')
+  xlabel('Frequency (Hz)')
+  ylabel('|Y(f)|')
+  end
+end
