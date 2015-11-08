@@ -1,7 +1,7 @@
 %{Created by Jonathan Otto from link https://www.youtube.com/watch?v=PLjRq1U6BQQ }%
 
 
-function [ fresp ] = fres(Fs)
+function [ f ] = fres(Fs)
   %{FRES Spectral Analyser based on MIC input
   Set Fs, sampling rate}%
 
