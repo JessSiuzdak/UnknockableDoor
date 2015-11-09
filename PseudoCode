@@ -1,0 +1,38 @@
+// Unknockable Door Pseudocode//
+#include Servo.h
+
+//Set Pins 
+Analog Pin 0 Piezo Buzzer
+Digital Pin Motor
+Digital Pin Pushbutton/Slideswitch for Reprogramming
+Digital Pin Slideswitch for Turning System On
+Digital Pin Green LED(Accepted Light)
+Digital Pin Red LED(Rejected Light)
+
+//Set Variables
+High Pass Filter
+Unlock Sequence
+Debounce time
+
+
+//Begin Code
+Turn on System
+Set up initial Knock sequence
+If Reprogramming slide switch/button is active set up new sequence
+	Listen for knock
+	Save new sequence and replace old
+Else Begin Listening for knock
+	Hears Knock
+	Debounce time
+	Convolution calculation with a high pass filter (If too long delay REMOVE)
+	Accepts or Rejects value passed on convolution
+	Continue until sequence is completed
+	If Accepted	
+		Turn on green light for a second
+		Open Door
+	Else	
+		Reject 
+		Turn on red light for a second
+	End
+Begin Loop again
+End
