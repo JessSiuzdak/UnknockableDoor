@@ -3,7 +3,7 @@
 
 function [ f ] = fres(Fs)
   %{FRES Spectral Analyser based on MIC input
-  Set Fs, sampling rate}%
+  %Set Fs, sampling rate}%
 
 while 1
   r=audiorecorder(Fs,8,1); % set variable r to the recoder, Set Fs, sampling rate, 8 bits per sample, 1 channel
