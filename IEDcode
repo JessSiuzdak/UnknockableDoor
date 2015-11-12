@@ -1,12 +1,9 @@
-
-//Set up Analog and Digital Pins
-
 // Analog Pins
 const int Sensor = 0;         // Piezo sensor on pin 0.
 
 //Digital Pins
 const int Slideswitch = 2;       // Reprogramming Switch on Pin 2
-const int unlockServo = 3;       // Servo on Pin 3
+const int unlockServo = 3;           // Servo on Pin 
 
 //OPTIONAL Digital Pins
 const int GreenLED = 4;         //Accepting Green LED Pin 4
@@ -14,7 +11,11 @@ const int RedLED = 5;           //Rejecting Red LED Pin 5
 
 //Variables
 int sensorValue = 0;    		//Variable dedicated to "hearing" a knock
-
+int noteDurations[] = 			//Reprogramming note durations
+{4, 8, 8, 4, 4, 4, 4, 4};
+int melody[] = {				//Reprogramming melody
+  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4
+};
 void setup()
 {
 
@@ -22,20 +23,27 @@ void setup()
 
 void loop()
 {
-if (sensorValue = analogRead(Sensor))
-	if (digitalRead(Slideswitch == HIGH))
+if (sensorValue = analogRead(Sensor))            //Read the value from the sensor
+	if (digitalRead(Slideswitch == HIGH))		 //If the slideswitch is on
 	{
-		reprogramming = true;
-		for (int thisNote = 0; thisNote < 8; thisNote++)
+		for (int thisNote = 0; thisNote < 8; thisNote++) //Play Reprogramming melody
 		{
-    			int noteDuration = 1000 / noteDurations[thisNote];
-    			tone(8, melody[thisNote], noteDuration);
+			int noteDuration = 1000 / noteDurations[thisNote];
+			tone(8, melody[thisNote], noteDuration);
 			int pauseBetweenNotes = noteDuration * 1.30;
 			delay(pauseBetweenNotes);
 			noTone(8);
 		}
+		reprogramming = true;					//Begin Reprogramming
 	}
 	else 
 	{
-		reprogramming = false;
+		reprogramming = false					//otherwise DON'T reprogram
 	}
+	if (sensorValue >= thresholdvalue)			//if the knock is an acceptable decibel level
+	{
+		listenforcode();						//listen for the sequential knocks
+	}
+}
+
+//Functions used in Main Code
