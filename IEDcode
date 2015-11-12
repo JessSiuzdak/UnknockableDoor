@@ -1,0 +1,9 @@
+
+//Set up Analog and Digital Pins
+
+// Analog Pins
+const int Sensor = 0;         // Piezo sensor on pin 0.
+
+//Digital Pins
+const int Slideswitch = 2;       // Reprogramming Switch on Pin 2
+const int unlockServo = 3;           // Servo on Pin 3
