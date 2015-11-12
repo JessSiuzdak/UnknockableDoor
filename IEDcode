@@ -7,6 +7,23 @@ const int Sensor = 0;         // Piezo sensor on pin 0.
 //Digital Pins
 const int Slideswitch = 2;       // Reprogramming Switch on Pin 2
 const int unlockServo = 3;       // Servo on Pin 3
+
 //OPTIONAL Digital Pins
 const int GreenLED = 4;         //Accepting Green LED Pin 4
 const int RedLED = 5;           //Rejecting Red LED Pin 5
+
+//Variables
+int sensorValue = 0;    		//Variable dedicated to "hearing" a knock
+
+void setup()
+{
+
+}
+
+void loop()
+{
+if (sensorValue = analogRead(Sensor))
+	if (digitalRead(Slideswitch == HIGH))
+	{
+		reprogramming = true;
+		
