@@ -11,6 +11,8 @@ const int unlockServo = 3;           // Servo on Pin
 
 //Variables
 int sensorValue = 0;    		//Variable dedicated to "hearing" a knock
+int thresholdvalue = 5;			//NEEDS TO BE DETERMINED THROUGH TESTING
+const int MotorRunTime = 240;		//Motor will run for 240 milliseconds
 int noteDurations[] = 			//Reprogramming note durations
 	{4, 8, 8, 4, 4, 4, 4, 4};
 int melody[] =				//Reprogramming melody
@@ -37,11 +39,11 @@ if (sensorValue = analogRead(Sensor))            //Read the value from the senso
 	}
 	else 
 	{
-		reprogramming = false					//otherwise DON'T reprogram
+		reprogramming = false				//otherwise DON'T reprogram
 	}
 	if (sensorValue >= thresholdvalue)			//if the knock is an acceptable decibel level
 	{
-		listenforcode();						//listen for the sequential knocks
+		listenforcode();				//listen for the sequential knocks
 	}
 }
 
@@ -52,13 +54,12 @@ void listenforcode()
 // RUN the Servo
 void TriggerServo()
 {
-  Serial.println("Door unlocked!");
+  Serial.println("Door unlocked!");				//Prints the Line "Door unlocked"
+
+  digitalWrite(unlockServo, HIGH);				//Turn on the servo			
   
-  // turn the servo on for a bit.
-  digitalWrite(unlockServo, HIGH);
+  delay (MotorRunTime);                 			 //Runs the servo for the set time
   
-  delay (lockTurnTime);                    // Wait a bit.
-  
-  digitalWrite(unlockServo, LOW);            // Turn the motor off.
+  digitalWrite(unlockServo, LOW);            			// Turn the servo off.
    
 }
