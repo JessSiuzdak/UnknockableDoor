@@ -6,8 +6,8 @@ const int Slideswitch = 2;       // Reprogramming Switch on Pin 2
 const int unlockServo = 3;           // Servo on Pin 
 
 //OPTIONAL Digital Pins
-const int GreenLED = 4;         //Accepting Green LED Pin 4
-const int RedLED = 5;           //Rejecting Red LED Pin 5
+//const int GreenLED = 4;         //Accepting Green LED Pin 4
+//const int RedLED = 5;           //Rejecting Red LED Pin 5
 
 //Variables
 int sensorValue = 0;    		//Variable dedicated to "hearing" a knock
@@ -47,3 +47,20 @@ if (sensorValue = analogRead(Sensor))            //Read the value from the senso
 }
 
 //Functions used in Main Code
+void listenforcode()
+{
+
+// RUN the Servo
+void TriggerServo()
+{
+  Serial.println("Door unlocked!");
+  int i=0;
+  
+  // turn the servo on for a bit.
+  digitalWrite(unlockServo, HIGH);
+  
+  delay (lockTurnTime);                    // Wait a bit.
+  
+  digitalWrite(unlockServo, LOW);            // Turn the motor off.
+   
+}
