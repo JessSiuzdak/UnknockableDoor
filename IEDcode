@@ -11,7 +11,8 @@ const int unlockServo = 3;           // Servo on Pin
 
 //Variables
 int sensorValue = 0;    		//Variable dedicated to "hearing" a knock
-int thresholdvalue = 5;			//NEEDS TO BE DETERMINED THROUGH TESTING
+int minthresholdvalue = 5;		//NEEDS TO BE DETERMINED THROUGH TESTING
+int maxthresholdvalue = 100;		//NEEDS TO BE DETERMINED THROUGH TESTING
 const int MotorRunTime = 240;		//Motor will run for 240 milliseconds
 int noteDurations[] = 			//Reprogramming note durations
 	{4, 8, 8, 4, 4, 4, 4, 4};
@@ -41,7 +42,7 @@ if (sensorValue = analogRead(Sensor))            //Read the value from the senso
 	{
 		reprogramming = false				//otherwise DON'T reprogram
 	}
-	if (sensorValue >= thresholdvalue)			//if the knock is an acceptable decibel level
+	if ((sensorValue >= minthresholdvalue) && (sensorValue <=maxthreshold))			//if the knock is an acceptable decibel level
 	{
 		listenforcode();				//listen for the sequential knocks
 	}
