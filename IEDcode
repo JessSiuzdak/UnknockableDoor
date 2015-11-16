@@ -54,7 +54,6 @@ void listenforcode()
 void TriggerServo()
 {
   Serial.println("Door unlocked!");
-  int i=0;
   
   // turn the servo on for a bit.
   digitalWrite(unlockServo, HIGH);
