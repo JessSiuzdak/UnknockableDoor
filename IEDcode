@@ -21,7 +21,8 @@ int melody[] = {				//Reprogramming melody
 };
 void setup()
 {
-
+	pinMode(unlockServo, OUTPUT);
+	pinMode(SlideSwitch, INPUT);
 }
 
 void loop()
