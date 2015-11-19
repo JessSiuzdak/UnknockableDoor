@@ -15,9 +15,10 @@ int minthresholdvalue = 5;		//NEEDS TO BE DETERMINED THROUGH TESTING
 int maxthresholdvalue = 100;		//NEEDS TO BE DETERMINED THROUGH TESTING
 const int MotorRunTime = 240;		//Motor will run for 240 milliseconds
 int noteDurations[] = 			//Reprogramming note durations
-	{4, 8, 8, 4, 4, 4, 4, 4};
-int melody[] =				//Reprogramming melody
-	{NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4};
+{8, 8, 8, 8, 8};				
+int melody[] = {				//Reprogramming melody
+  NOTE_F2, NOTE_F3, NOTE_F4, NOTE_F5, NOTE_F6
+};
 void setup()
 {
 
@@ -28,7 +29,7 @@ void loop()
 if (sensorValue = analogRead(Sensor))            //Read the value from the sensor
 	if (digitalRead(Slideswitch == HIGH))		 //If the slideswitch is on
 	{
-		for (int thisNote = 0; thisNote < 8; thisNote++) //Play Reprogramming melody
+		for (int thisNote = 0; thisNote < 5; thisNote++) //Play Reprogramming melody
 		{
 			int noteDuration = 1000 / noteDurations[thisNote];
 			tone(8, melody[thisNote], noteDuration);
